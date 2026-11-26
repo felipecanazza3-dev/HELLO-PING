@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testar Ping</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000000;
+      color: purple;
+      font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      gap: 24px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: purple;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      color: purple;
+      margin-bottom: 12px;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 650px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      min-width: 220px;
+      padding: 10px 14px;
+      background-color: #000000;
+      color: purple;
+      border: 1px solid purple;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input[type="text"]::placeholder {
+      color: purple;
+      opacity: 0.6;
+    }
+
+    button,
+    .btn-link {
+      display: inline-block;
+      padding: 10px 22px;
+      color: purple;
+      background-color: transparent;
+      border: 1px solid purple;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    button:hover,
+    .btn-link:hover {
+      background-color: purple;
+      color: #000000;
+    }
+
+    .resultado {
+      width: 100%;
+      max-width: 750px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid purple;
+      margin: 4px 0 8px;
+    }
+
+    p {
+      color: purple;
+      line-height: 1.5;
+    }
+
+    pre {
+      background-color: #000000;
+      color: purple;
+      border: 1px solid purple;
+      border-radius: 6px;
+      padding: 16px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.4;
+      overflow-x: auto;
+    }
+
+    .nav-home {
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Testar Ping</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="name" value="{{ alvo }}" placeholder="Ex: google.com ou 8.8.8.8" required>
+    <button type="submit">Pingar</button>
+  </form>
+
+  {% if alvo %}
+    <section class="resultado">
+      <hr>
+      <h2>Resultado do ping para: {{ alvo }}</h2>
+
+      {% if sucesso %}
+        <p><strong>Status:</strong> Respondeu</p>
+      {% elif sucesso == False %}
+        <p><strong>Status:</strong> Sem resposta / erro</p>
+      {% endif %}
+
+      {% if resultado_ping %}
+        <pre>{{ resultado_ping }}</pre>
+      {% endif %}
+    </section>
+  {% endif %}
+
+  <div class="nav-home">
+    <a class="btn-link" href="{% url 'home' %}">home</a>
+  </div>
+</body>
+</html>

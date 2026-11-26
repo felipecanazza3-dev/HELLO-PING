@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELLO PING</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000000;
+            color: purple;
+            font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow-x: auto;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .skull {
+            font-size: clamp(10px, 1.8vw, 20px);
+            line-height: 1.05;
+            letter-spacing: 0;
+            white-space: pre;
+            color: purple;
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+            color: purple;
+        }
+
+        .btn-search {
+            display: inline-block;
+            padding: 10px 24px;
+            color: purple;
+            background-color: transparent;
+            border: 1px solid purple;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .btn-search:hover {
+            background-color: purple;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <main class="hero">
+        <pre class="skull">███████████████████████████
+███████▀▀▀░░░░░░░▀▀▀███████
+████▀░░░░░░░░░░░░░░░░░▀████
+███│░░░░░░░░░░░░░░░░░░░│███
+██▌│░░░░░░░░░░░░░░░░░░░│▐██
+██░└┐░░░░░░░░░░░░░░░░░┌┘░██
+██░░└┐░░░░░░░░░░░░░░░┌┘░░██
+██░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░██
+██▌░│██████▌░░░▐██████│░▐██
+███░│▐███▀▀░░▄░░▀▀███▌│░███
+██▀─┘░░░░░░░▐█▌░░░░░░░└─▀██
+██▄░░░▄▄▄▓░░▀█▀░░▓▄▄▄░░░▄██
+████▄─┘██▌░░░░░░░▐██└─▄████
+█████░░▐█─┬┬┬┬┬┬┬─█▌░░█████
+████▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐████
+█████▄░░░└┴┴┴┴┴┴┴┘░░░▄██████
+███████▄░░░░░░░░░░░▄███████
+██████████▄▄▄▄▄▄▄██████████
+███████████████████████████</pre>
+        <h4>HELLO PING</h4>
+        <a class="btn-search" href="{% url 'search' %}">SEARCH</a>
+    </main>
+</body>
+</html>
